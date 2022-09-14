@@ -5,6 +5,7 @@ const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
 
+
 // variables
 let userText = "";
 let errorCount = 0;
@@ -63,11 +64,12 @@ const validate = (key) => {
 
 // FINISHED TYPING
 const gameOver = () => {
+
   document.removeEventListener("keydown", typeController);
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const timeTaken = Math.round((finishTime - startTime) / 1000);
 
   // show result modal
   resultModal.innerHTML = "";
@@ -76,7 +78,9 @@ const gameOver = () => {
   // clear user text
   display.innerHTML = "";
   // make it inactive
+
   display.classList.add("inactive");
+  resultModal.classList.add('div');
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
@@ -84,6 +88,9 @@ const gameOver = () => {
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
+
+
+
 
   addHistory(questionText, timeTaken, errorCount);
 
@@ -111,9 +118,6 @@ const start = () => {
 
     // finished timer
     if (count == -1) {
-      console.log(count);
-      // countdownOverlay.style.display = "none";
-
 
       // -------------- START TYPING -----------------
 
@@ -137,7 +141,7 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = Math.round((currentTime - startTime) / 1000);
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
