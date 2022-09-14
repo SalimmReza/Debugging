@@ -18,6 +18,7 @@ fetch("./texts.json")
   .then((data) => {
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
+
   });
 
 // checks the user typed character and displays accordingly
@@ -36,23 +37,38 @@ const typeController = (e) => {
 
   // if it is not a valid character like Control/Alt then skip displaying anything
   if (!validLetters.includes(newLetter)) {
+
     return;
   }
 
+
   userText += newLetter;
 
+
   const newLetterCorrect = validate(newLetter);
+
 
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
+    errorCount++;
+
   }
+
+
 
   // check if given question text is equal to user typed text
   if (questionText === userText) {
     gameOver();
   }
+  else if (questionText.length === userText) {
+    gameOver();
+  }
+
+
+
+
 };
 
 const validate = (key) => {
