@@ -9,7 +9,7 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="container">
 
 
     <div class="accordion" id="accordionExample">
@@ -61,18 +61,51 @@
             <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
+                    How js event loop works.Undefined
                 </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                    <strong>How js event loop works.Undefined</strong> The Event Loop has one simple job — to monitor
+                    the Call Stack and the Callback Queue. If the Call Stack is empty, the Event Loop will take the
+                    first event from the queue and will push it to the Call Stack, which effectively runs it. Such an
+                    iteration is called a tick in the Event Loop
+                    <br>
+
+                    <strong>In how many ways we get undefined</strong>
+                    When a variable is declared or initialized but no value is assigned to it, JavaScript automatically
+                    displays "undefined". <br>
+                    When you try accessing values in, for example, an array or object that doesn’t exist, it will throw
+                    undefined. <br>
+                    <strong>
+                        In case you are in a rush, here are the three standard methods that can help you check if a
+                        variable is undefined. </strong> <br>
+                    One of the first methods that comes to mind is direct comparison. This is where you compare the
+                    output to see if it returns undefined. <br>
+                    let user = {
+                    name: "John Doe",
+                    age: 14
+                    };
+
+                    if (user.hobby === undefined) {
+                    console.log("This is undefined");
+                    }
+
+                    <br>
+                    let scores = [12, 34, 66, 78];
+
+                    if (scores[10] === undefined) {
+                    console.log("This is undefined");
+                    }
+
+                    <br>
+                    let name;
+
+                    if (name === undefined) {
+                    console.log("This is undefined");
+                    }
+
                 </div>
             </div>
         </div>
